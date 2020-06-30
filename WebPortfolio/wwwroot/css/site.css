@@ -7,6 +7,12 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+main nav img.card-img-top {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+}
+
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
