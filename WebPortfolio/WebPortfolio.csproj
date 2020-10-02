@@ -6,11 +6,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.5" />
+    <Compile Remove="Migrations\20200930183504_initSeed.cs" />
+    <Compile Remove="Migrations\20200930183504_initSeed.Designer.cs" />
+    <Compile Remove="Migrations\20200930185914_InitSeed.cs" />
+    <Compile Remove="Migrations\20200930185914_InitSeed.Designer.cs" />
+    <Compile Remove="Migrations\20200930193313_Init.cs" />
+    <Compile Remove="Migrations\20200930193313_Init.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\imgs\" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\imgs\projects\" />
   </ItemGroup>
 
 </Project>
