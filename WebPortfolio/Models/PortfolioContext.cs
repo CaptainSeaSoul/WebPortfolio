@@ -12,6 +12,7 @@ namespace WebPortfolio.Models
         public DbSet<Project> Projects { set; get; }
         public DbSet<Sertificate> Sertificates { get; set; }
         public DbSet<Skill> Skills { get; set; }
+        public DbSet<Language> Languages { get; set; }
 
         public PortfolioContext(DbContextOptions<PortfolioContext> options) : base(options)
         {
@@ -190,6 +191,25 @@ namespace WebPortfolio.Models
                     Progress = 75
                 }
                 );
+
+            modelBuilder.Entity<Language>().HasData(
+                new Language
+                {
+                    Id = 1,
+                    Name = "Russian",
+                    Progress = 100                    
+                },
+                new Language
+                {
+                    Id = 2,
+                    Name = "English",
+                    Progress = 70
+                },
+                new Language {
+                    Id = 3,
+                    Name = "Spanish",
+                    Progress = 8
+                });
         }
     }
 }

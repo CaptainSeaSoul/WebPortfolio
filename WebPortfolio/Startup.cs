@@ -29,6 +29,7 @@ namespace WebPortfolio
             services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(connection));
 
             services.AddRazorPages();
+            services.AddServerSideBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +56,7 @@ namespace WebPortfolio
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapBlazorHub();
             });
         }
     }

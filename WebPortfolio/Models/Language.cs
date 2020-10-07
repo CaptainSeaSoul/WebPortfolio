@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace WebPortfolio.Models
 {
-    public class Skill
+    public class Language
     {
         [Key]
         [ScaffoldColumn(false)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required] 
+        [Required]
         public string Name { get; set; }
         [Required]
         [Range(1, 100, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int Progress { get; set; }
+
+        public Sertificate Sertificate { get; set; }
     }
 }
