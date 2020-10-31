@@ -4,7 +4,7 @@
 
 <div class="mb-5">
     <div class="card-deck">
-        @foreach (var project in db.Projects.ToList())
+        @foreach (var project in db.Projects)
         {
             <div class="card" style="width: 18rem;">
                 <div id="projectCarousel_@project.Id" class="carousel slide" data-ride="carousel">

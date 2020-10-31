@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+
+<EditForm Model="contact" OnInvalidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <InputText @bind-Value="contact.Name" class="form-control" placeholder="My favourite name"/>
+        <ValidationMessage For="@(() => contact.Name)"/>
+    </div>
+    <div class="form-group">
+        <InputText @bind-Value="contact.Email" type="email" class="form-control" placeholder="The best email I've seen" />
+        <ValidationMessage For="@(() => contact.Email)" />
+    </div>
+    <div class="form-group">
+        <InputText @bind-Value="contact.PhoneNumber" type="tel" class="form-control" placeholder="The number everybody wants" />
+        <ValidationMessage For="@(() => contact.PhoneNumber)" />
+    </div>
+    <div class="form-group">
+        <InputTextArea @bind-Value="contact.Message" class="form-control" rows="3" placeholder="Your important messsage" />
+        <ValidationMessage For="@(() => contact.Message)" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+

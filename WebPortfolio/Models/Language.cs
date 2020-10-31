@@ -10,7 +10,6 @@ namespace WebPortfolio.Models
     public class Language
     {
         [Key]
-        [ScaffoldColumn(false)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]

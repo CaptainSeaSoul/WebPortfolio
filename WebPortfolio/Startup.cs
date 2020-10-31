@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebPortfolio.Models;
+using WebPortfolio.Services;
 
 namespace WebPortfolio
 {
@@ -25,11 +26,22 @@ namespace WebPortfolio
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(connection));
-
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
+            // configure protection 
+            services.AddProtectedConfiguration();
+            services.ConfigureProtected<EmailServerConfiguration>(Configuration.GetSection("EmailServerConfiguration"));
+
+            // configure Email
+            EmailServerConfiguration config = Configuration.GetSection("EmailServerConfiguration").Get<EmailServerConfiguration>();
+
+            services.AddSingleton<EmailServerConfiguration>(config);
+            services.AddTransient<IEmailService, MailKitEmailService>();
+
+            // confugure DB
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

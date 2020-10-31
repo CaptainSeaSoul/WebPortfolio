@@ -11,7 +11,6 @@ namespace WebPortfolio.Models
     public class Sertificate
     {
         [Key]
-        [ScaffoldColumn(false)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required] 

@@ -1,0 +1,10 @@
+{
+  "EmailServerConfiguration": {
+    "SmtpServer": null,
+    "SmtpPort": 537,
+    "SmtpUsername": null,
+    "SmtpPassword": null,
+    "EmailOwnerName": null,
+    "SenderEmailAddress": null
+  }
+}

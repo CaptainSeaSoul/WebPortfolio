@@ -13,6 +13,7 @@ namespace WebPortfolio.Models
         public DbSet<Sertificate> Sertificates { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Language> Languages { get; set; }
+        public DbSet<ContactFormModel> Contacts { get; set; }
 
         public PortfolioContext(DbContextOptions<PortfolioContext> options) : base(options)
         {

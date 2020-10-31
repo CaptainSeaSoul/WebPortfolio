@@ -7,15 +7,19 @@ using System.Threading.Tasks;
 
 namespace WebPortfolio.Models
 {
-    public class Project
+    public class ContactFormModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
-        public string Title { get; set; }
-        public string ShortDescription { get; set; }
-        public List<string> Images { get; set; }
-        public string Content { get; set; }
+        public string Name { get; set; }
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+        [Phone]
+        public string PhoneNumber { get; set; }
+        [MaxLength(512)]
+        public string Message { get; set; }
     }
 }
