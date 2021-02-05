@@ -1,4 +1,5 @@
-﻿using MimeKit;
+﻿using Microsoft.Extensions.Options;
+using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace WebPortfolio.Services
 
             using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
-                await client.ConnectAsync(_eConfig.SmtpServer, _eConfig.SmtpPort, false);
+                await client.ConnectAsync(_eConfig.SmtpServer, _eConfig.SmtpPort, true);
 
                 await client.AuthenticateAsync(_eConfig.SmtpUsername, _eConfig.SmtpPassword);
 

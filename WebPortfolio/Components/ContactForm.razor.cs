@@ -11,9 +11,9 @@ namespace WebPortfolio.Components
     public partial class ContactForm
     {
         [Inject]
-        public PortfolioContext Db { get; set; }
+        private PortfolioContext Db { get; set; }
         [Inject]
-        public MailKitEmailService EmailService { get; set; }
+        private IEmailService EmailService { get; set; }
 
         private ContactFormModel contact = new ContactFormModel();
 
@@ -21,8 +21,12 @@ namespace WebPortfolio.Components
         {
             Db.Add(contact);
             await Db.SaveChangesAsync();
-            // todo what's the message?
-            await EmailService.SendAsync("Contact Request To Ildar", "", contact.Email, contact.Name);
+
+            var message = $"Hi {contact.Name}!\n" +
+                $"Thank you for contacting me! I'll consider your request and reply as soon as I can." +
+                $"\nSincerely, Ildar";
+
+            await EmailService.SendAsync("Contact Request To Ildar", message, contact.Email, contact.Name);
         }
     }
 }

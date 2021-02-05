@@ -28,15 +28,12 @@ namespace WebPortfolio
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-
-            // configure protection 
-            services.AddProtectedConfiguration();
-            services.ConfigureProtected<EmailServerConfiguration>(Configuration.GetSection("EmailServerConfiguration"));
+            services.AddControllers();
 
             // configure Email
             EmailServerConfiguration config = Configuration.GetSection("EmailServerConfiguration").Get<EmailServerConfiguration>();
-
             services.AddSingleton<EmailServerConfiguration>(config);
+
             services.AddTransient<IEmailService, MailKitEmailService>();
 
             // confugure DB
@@ -69,6 +66,7 @@ namespace WebPortfolio
             {
                 endpoints.MapRazorPages();
                 endpoints.MapBlazorHub();
+                endpoints.MapControllers();
             });
         }
     }

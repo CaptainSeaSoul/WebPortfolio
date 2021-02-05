@@ -128,7 +128,7 @@
             </ul>
         </div>
 
-        <h4 id="sertificates">Sertificates</h4>
+        <h4 id="certificates">Certificates</h4>
         <div class="mb-5">
             <ul class="list-group">
                 @foreach (var sertificate in Model.Sertificates)
@@ -159,7 +159,7 @@
 
         <h4 id="contacts">Contact Me</h4>
         <div class="mb-5">
-            @(await Html.RenderComponentAsync<ContactForm>(RenderMode.ServerPrerendered))
+            @(await Html.RenderComponentAsync<ContactForm>(RenderMode.Server))
         </div>
         <div class="alert alert-secondary" role="alert">
             Or just contact me: <a href="mailto:renorq@mail.ru" class="alert-link">renorq@mail.ru</a>
