@@ -2,3 +2,11 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your Javascript code.
+
+function showNotification() {
+    $('.toast').toast('show');
+}
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
