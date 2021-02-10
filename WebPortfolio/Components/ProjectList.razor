@@ -3,10 +3,10 @@
 @inject PortfolioContext db
 
 <div class="mb-5">
-    <div class="card-deck overflow-auto">
+    <div class="card-deck">
         @foreach (var project in db.Projects ?? Enumerable.Empty<Project>())
         {
-            <div class="card">
+            <div class="card mb-2">
                 <div id="projectCarousel_@project.Id" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         @foreach (var image in project.Images ?? Enumerable.Empty<String>())
