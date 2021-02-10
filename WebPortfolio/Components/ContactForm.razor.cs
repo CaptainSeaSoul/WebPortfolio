@@ -30,7 +30,15 @@ namespace WebPortfolio.Components
 
             try
             {
+                // Email to contact
                 await EmailService.SendAsync("Contact Request To Ildar", message, contact.Email, contact.Name);
+                // Email to myself to notify
+                await EmailService.SendAsync("Contact Request To Ildar from " + contact.Name,
+                    contact.Name + " wants to contact you." +
+                    "\nEmail: " + contact.Email +
+                    "\nPhone Number: " + contact.PhoneNumber +
+                    "\nMessage: " + contact.Message);
+
                 deliveryNotification.SetSuccess();
             }
             catch (Exception e)

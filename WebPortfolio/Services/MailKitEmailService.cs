@@ -42,5 +42,10 @@ namespace WebPortfolio.Services
                 await client.DisconnectAsync(true);
             }
         }
+
+        public async Task SendAsync(String subject, String content)
+        {
+            await SendAsync(subject, content, _eConfig.SenderEmailAddress, _eConfig.EmailOwnerName);
+        }
     }
 }

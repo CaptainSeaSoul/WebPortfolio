@@ -3,16 +3,16 @@
 @inject PortfolioContext db
 
 <div class="mb-5">
-    <div class="card-deck">
-        @foreach (var project in db.Projects)
+    <div class="card-deck overflow-auto">
+        @foreach (var project in db.Projects ?? Enumerable.Empty<Project>())
         {
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <div id="projectCarousel_@project.Id" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                        @foreach (var image in project.Images)
+                        @foreach (var image in project.Images ?? Enumerable.Empty<String>())
                         {
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="@image" alt="Third slide">
+                            <div class="carousel-item @(image == project.Images.First() ? "active" : "")">
+                                <img class="d-block w-100" src="@image" alt="Slide of project @project.Id">
                             </div>
                         }
                     </div>
@@ -28,9 +28,13 @@
                 <div class="card-body">
                     <h5 class="card-title">@project.Title</h5>
                     <p class="card-text">@project.ShortDescription</p>
-                    <a href="#" class="btn btn-primary">Description</a>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#project_@(project.Id)_Modal">
+                        Description
+                    </button>
                 </div>
             </div>
+
+            <ProjectComponent Project="project"/>
         }
     </div>
 </div>
