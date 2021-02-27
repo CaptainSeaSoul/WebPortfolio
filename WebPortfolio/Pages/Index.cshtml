@@ -4,8 +4,10 @@
     ViewData["Title"] = "Home page";
 }
 
+@(await Html.RenderComponentAsync<HeaderAnimation>(RenderMode.Static))
+
 <div class="row">
-    <div class="col-3">
+    <div class="col-3 d-sm-none d-md-block">
         <nav class="sticky-top mt-4 card pt-3">
             <a class="text-center" href="#">
                 <img src="~/imgs/photo.jpg" class="card-img-top img-thumbnail mx-auto rounded-circle" alt="My photo" />

@@ -27,6 +27,7 @@
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="wwwroot\imgs\projects\" />
+    <Folder Include="wwwroot\lib\anime\" />
   </ItemGroup>
 
 </Project>

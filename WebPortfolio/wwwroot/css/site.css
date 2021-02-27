@@ -75,3 +75,51 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/* HeaderAnimation styles
+-------------------------------------------------- */
+div.animation_container {
+    height: 50vh;
+    position: relative;
+}
+
+div.background_container {
+    /*display: none;*/
+    height: 100%;
+    position: relative;
+}
+
+div.typing_container {
+    position: absolute;
+    top: -100vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+}
+
+div.typing_container div.staggering {
+    font-size: 60px;
+    display: inline-block;
+}
+
+.background_container svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+}
+
+.smaller_square {
+    display: block;
+    background-color: #fff;
+    float: left;
+    box-sizing: border-box;
+    position: relative;
+    border: 2px solid #fff;
+}

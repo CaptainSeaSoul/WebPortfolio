@@ -3,6 +3,7 @@
 
 // Write your Javascript code.
 
+// Email Notification 
 function showNotification() {
     $('.toast').toast('show');
 }
@@ -10,3 +11,52 @@ function showNotification() {
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
+
+// Header Animation
+var tl = anime.timeline();
+
+var fill_with_squares = function () {
+    var quantity = 400;
+
+    for (var i = 0; i < quantity; i++) {
+        $('.background_container').append('<div class="smaller_square"  style="width:' + 5 + '%; height:' + 5 + '%"></div>');
+    }
+};
+
+tl
+    .add({
+        targets: '.staggering',
+        translateY: '50vh',
+        delay: anime.stagger(150, { easing: 'easeOutQuad' })
+    }).add({
+        targets: '.staggering',
+        easing: 'easeInOutQuad',
+        opacity: 0
+    })/*.add({
+        targets: '.background_container',
+        easing: 'easeInOutQuad',
+        width: ['0%', '100%'],
+        begin: function () {
+            document.querySelector('.background_container').style.display = 'block';
+            document.querySelector('.typing_container').style.display = 'none';
+        },
+    })*/.add({
+        targets: '.background_container #svgGroup path',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 3000,
+        direction: 'alternate',
+        // delay: function(el, i) { return i * 250 }
+    }).add({
+        targets: '.background_container',
+        complete: fill_with_squares(),
+        background: ['#fff', '#f8f9fa'],
+    }).add({
+        targets: '.background_container .smaller_square',
+        scale: [
+            { value: .1, easing: 'easeOutSine', duration: 500 },
+            { value: 1, easing: 'easeInOutQuad', duration: 1200 }
+        ],
+        delay: anime.stagger(300, { grid: [20, 20], from: 'center' }),
+        complete: function (anim) { anim.reverse(); anim.restart(); }
+    });
