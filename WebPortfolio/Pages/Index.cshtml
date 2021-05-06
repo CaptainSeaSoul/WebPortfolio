@@ -7,7 +7,7 @@
 @(await Html.RenderComponentAsync<HeaderAnimation>(RenderMode.Static))
 
 <div class="row">
-    <div class="col-3 d-sm-none d-md-block">
+    <div class="col-3 d-none d-md-block">
         <nav class="sticky-top mt-4 card pt-3">
             <a class="text-center" href="#">
                 <img src="~/imgs/photo.jpg" class="card-img-top img-thumbnail mx-auto rounded-circle" alt="My photo" />
@@ -30,12 +30,12 @@
         </nav>
     </div>
     <div class="col">
-        <!--TODO add some photo or animation in the top-->
         <h4 id="about">About me</h4>
         <div class="mb-5">
             <p>I am a 4th-year student of ITMO university in St. Petersburg studying "Neurotechnologies and Programming". In 2018 was registered as an individual entreprenuer in Software Development.</p>
             <p>I have proven to be a responsible student with a list of academic achievments such as reaching the top of the faculty rating, finishing an exchange trimester in Pompeu Fabra University in Barcelona and I was granted to have a state funded education. I have participated in hackathones in order to earn experience. </p>
-            <p>Apart from learning technologies, I have succeeded in developing soft skills such as <a href="~/imgs/TickTickStats.jpg" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="My stats in TickTick">time management</a>, which taught me to achieve results, stage-performance, negotiations, communication, emotional growth, which gave me stress resistance, leadership, which showed me the optimal principels of encouraging colleagues and myself</p>
+            <p>Apart from learning technologies, I have succeeded in developing soft skills such as <a href="~/imgs/TickTickStats.jpg" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top" title="My stats in TickTick">time management</a>, which taught me to achieve results, stage-performance, negotiations, communication, emotional growth, which gave me stress resistance, leadership, which showed me the optimal principels of encouraging colleagues and myself.</p>
+            <p>Check out my github: https://github.com/CaptainSeaSoul</p>
         </div>
 
         <h4 id="skills">Skills</h4>
@@ -57,7 +57,7 @@
                             <th scope="row">@skill.Name</th>
                             <td colspan="4">
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@skill.Progress" aria-valuemin="0" aria-valuemax="100" style="width: @(skill.Progress)%"></div>
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@skill.Progress" aria-valuemin="0" aria-valuemax="100" style="width:@(skill.Progress)%"></div>
                                 </div>
                             </td>
                         </tr>

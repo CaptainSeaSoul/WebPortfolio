@@ -13,9 +13,16 @@ main nav img.card-img-top {
     object-fit: cover;
 }
 
+@media (max-width: 670px) {
+    .table td, .table th {
+        padding: 0.40rem;
+        font-size: 0.7rem;
+    }
+}
+
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
@@ -84,7 +91,7 @@ div.animation_container {
 }
 
 div.background_container {
-    /*display: none;*/
+    display: none;
     height: 100%;
     position: relative;
 }
@@ -101,7 +108,7 @@ div.typing_container {
 }
 
 div.typing_container div.staggering {
-    font-size: 60px;
+    font-size: 6vw;
     display: inline-block;
 }
 
@@ -113,6 +120,7 @@ div.typing_container div.staggering {
     right: 0;
     margin: auto;
     z-index: 1;
+    width: 100%;
 }
 
 .smaller_square {

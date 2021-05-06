@@ -4,7 +4,14 @@
 // Write your Javascript code.
 
 // Email Notification 
+function showLoadingSpinner() {
+    $('#loading_button').prop('disabled', true);
+    $('#loading_button').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>  Loading...');
+}
+
 function showNotification() {
+    $('#loading_button').prop('disabled', false);
+    $('#loading_button').html('Submitted');
     $('.toast').toast('show');
 }
 
@@ -32,25 +39,19 @@ tl
         targets: '.staggering',
         easing: 'easeInOutQuad',
         opacity: 0
-    })/*.add({
-        targets: '.background_container',
-        easing: 'easeInOutQuad',
-        width: ['0%', '100%'],
-        begin: function () {
-            document.querySelector('.background_container').style.display = 'block';
-            document.querySelector('.typing_container').style.display = 'none';
-        },
-    })*/.add({
+    }).add({
         targets: '.background_container #svgGroup path',
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: 'easeInOutSine',
         duration: 3000,
         direction: 'alternate',
-        // delay: function(el, i) { return i * 250 }
+        begin: function () {
+            document.querySelector('.background_container').style.display = 'block';
+        }
     }).add({
         targets: '.background_container',
         complete: fill_with_squares(),
-        background: ['#fff', '#f8f9fa'],
+        background: ['#fff', '#F8F8FF'],
     }).add({
         targets: '.background_container .smaller_square',
         scale: [

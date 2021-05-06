@@ -10,8 +10,8 @@ using WebPortfolio.Models;
 namespace WebPortfolio.Migrations
 {
     [DbContext(typeof(PortfolioContext))]
-    [Migration("20200930194830_SampleData")]
-    partial class SampleData
+    [Migration("20210303115637_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,77 @@ namespace WebPortfolio.Migrations
                 .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("WebPortfolio.Models.ContactFormModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(512)")
+                        .HasMaxLength(512);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("WebPortfolio.Models.Language", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Progress")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SertificateId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SertificateId");
+
+                    b.ToTable("Languages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Russian",
+                            Progress = 100
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "English",
+                            Progress = 70
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Spanish",
+                            Progress = 8
+                        });
+                });
 
             modelBuilder.Entity("WebPortfolio.Models.Project", b =>
                 {
@@ -168,9 +239,6 @@ namespace WebPortfolio.Migrations
                     b.Property<int>("Progress")
                         .HasColumnType("int");
 
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Skills");
@@ -242,6 +310,13 @@ namespace WebPortfolio.Migrations
                             Name = "CSS",
                             Progress = 75
                         });
+                });
+
+            modelBuilder.Entity("WebPortfolio.Models.Language", b =>
+                {
+                    b.HasOne("WebPortfolio.Models.Sertificate", "Sertificate")
+                        .WithMany()
+                        .HasForeignKey("SertificateId");
                 });
 #pragma warning restore 612, 618
         }

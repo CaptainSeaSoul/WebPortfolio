@@ -24,6 +24,8 @@ namespace WebPortfolio.Components
 
         private async void HandleValidSubmit()
         {
+            await JS.InvokeVoidAsync("showLoadingSpinner");
+
             var message = $"Hi {contact.Name}!\n" +
                 $"Thank you for contacting me! I'll consider your request and reply as soon as I can." +
                 $"\nSincerely, Ildar";

@@ -37,8 +37,8 @@ namespace WebPortfolio
             services.AddTransient<IEmailService, MailKitEmailService>();
 
             // confugure DB
-            //string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<PortfolioContext>(options => options.UseSqlite("Filename=PortfolioContext.db"));
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<PortfolioContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
