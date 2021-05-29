@@ -15,7 +15,7 @@ namespace WebPortfolio.Pages
         private readonly ILogger<IndexModel> _logger;
         public PortfolioContext Db;
 
-        public IEnumerable<Sertificate> Sertificates { get; private set; }
+        public IEnumerable<Certificate> Certificates { get; private set; }
         public IEnumerable<Skill> Skills { get; private set; }
         public IEnumerable<Language> Languages { get; private set; }
 
@@ -27,7 +27,7 @@ namespace WebPortfolio.Pages
 
         public void OnGet()
         {
-            Sertificates = Db.Sertificates;
+            Certificates = Db.Certificates;
             Skills = Db.Skills;
             Languages = Db.Languages;
         }

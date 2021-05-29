@@ -39,7 +39,7 @@ namespace WebPortfolio.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Sertificates",
+                name: "Certificates",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -50,7 +50,7 @@ namespace WebPortfolio.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Sertificates", x => x.Id);
+                    table.PrimaryKey("PK_Certificates", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -75,22 +75,22 @@ namespace WebPortfolio.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: false),
                     Progress = table.Column<int>(nullable: false),
-                    SertificateId = table.Column<int>(nullable: true)
+                    CertificateId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Languages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Languages_Sertificates_SertificateId",
-                        column: x => x.SertificateId,
-                        principalTable: "Sertificates",
+                        name: "FK_Languages_Certificates_CertificateId",
+                        column: x => x.CertificateId,
+                        principalTable: "Certificates",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
                 table: "Languages",
-                columns: new[] { "Id", "Name", "Progress", "SertificateId" },
+                columns: new[] { "Id", "Name", "Progress", "CertificateId" },
                 values: new object[,]
                 {
                     { 1, "Russian", 100, null },
@@ -104,12 +104,12 @@ namespace WebPortfolio.Migrations
                 values: new object[] { 1, "This is a test content for the project with <a href='google.com'>link</a>", "imgs\\projects\\test.jpg", "Shortly", "Title" });
 
             migrationBuilder.InsertData(
-                table: "Sertificates",
+                table: "Certificates",
                 columns: new[] { "Id", "Name", "Url", "Year" },
                 values: new object[,]
                 {
                     { 11, "Participant of 5th student hackathon from First Line Software", null, 2018 },
-                    { 10, "Sertificate of Completion English Upper-Intermediate level from Simpler", "https://simpler.link/c/JmQM", 2018 },
+                    { 10, "Certificate of Completion English Upper-Intermediate level from Simpler", "https://simpler.link/c/JmQM", 2018 },
                     { 8, "Python 3 Tutorial course from SoloLearn", "https://www.sololearn.com/Certificate/1073-5118349/pdf/", 2018 },
                     { 7, "Java Tutorial course from SoloLearn", "https://www.sololearn.com/Certificate/1068-5118349/pdf/", 2018 },
                     { 6, "SQL Fundamentals course from SoloLearn", "https://www.sololearn.com/Certificate/1060-5118349/pdf/", 2018 },
@@ -140,9 +140,9 @@ namespace WebPortfolio.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Languages_SertificateId",
+                name: "IX_Languages_CertificateId",
                 table: "Languages",
-                column: "SertificateId");
+                column: "CertificateId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -160,7 +160,7 @@ namespace WebPortfolio.Migrations
                 name: "Skills");
 
             migrationBuilder.DropTable(
-                name: "Sertificates");
+                name: "Certificates");
         }
     }
 }

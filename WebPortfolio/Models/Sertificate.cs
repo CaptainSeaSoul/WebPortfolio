@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WebPortfolio.Models
 {
-    public class Sertificate
+    public class Certificate
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

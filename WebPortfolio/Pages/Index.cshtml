@@ -133,18 +133,18 @@
         <h4 id="certificates">Certificates</h4>
         <div class="mb-5">
             <ul class="list-group">
-                @foreach (var sertificate in Model.Sertificates)
+                @foreach (var certificate in Model.Certificates)
                 {
                     <li class="list-group-item list-group-item-action">
                         <div class="row">
                             <div class="col">
                                 <small>
-                                    @sertificate.Year
+                                    @certificate.Year
                                 </small>
                             </div>
                             <div class="col-10">
-                                <a href="@sertificate.Url" target="_blank" rel="noopener noreferrer">
-                                    @sertificate.Name
+                                <a href="@certificate.Url" target="_blank" rel="noopener noreferrer">
+                                    @certificate.Name
                                 </a>
                             </div>
                         </div>

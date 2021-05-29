@@ -10,7 +10,7 @@ namespace WebPortfolio.Models
     public class PortfolioContext : DbContext
     {
         public DbSet<Project> Projects { set; get; }
-        public DbSet<Sertificate> Sertificates { get; set; }
+        public DbSet<Certificate> Certificates { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<ContactFormModel> Contacts { get; set; }
@@ -44,78 +44,78 @@ namespace WebPortfolio.Models
                     Title = "Title"
                 });
 
-            modelBuilder.Entity<Sertificate>().HasData(
-                new Sertificate
+            modelBuilder.Entity<Certificate>().HasData(
+                new Certificate
                 {
                     Id = 1,
                     Name = "Android app development on Kotlin",
                     Year = 2020,
                     Url = "https://stepik.org/cert/330993"
                 },
-                new Sertificate
+                new Certificate
                 {
                     Id = 2,
                     Name = "Self presentation course: public performance skills in 21 century.",
                     Year = 2019,
                     Url = null
                 },
-                new Sertificate
+                new Certificate
                 {
                     Id = 3,
                     Name = "English Upper-Intermediate",
                     Year = 2019,
                     Url = null
                 },
-                new Sertificate
+                new Certificate
                 {
                     Id = 4,
                     Name = "C# tutorial from SoloLearn",
                     Url = "https://www.sololearn.com/Certificate/1080-5118349/pdf/",
                     Year = 2019
                 },
-                new Sertificate
+                new Certificate
                 {
                     Id = 5,
                     Name = "c++ programming course from Computer Science Center",
                     Url = "https://stepik.org/cert/113782",
                     Year = 2018
                 },
-                new Sertificate
+                new Certificate
                 {
                     Id = 6,
                     Name = "SQL Fundamentals course from SoloLearn",
                     Year = 2018,
                     Url = "https://www.sololearn.com/Certificate/1060-5118349/pdf/"
                 },
-                new Sertificate
+                new Certificate
                 {
                     Id = 7,
                     Name = "Java Tutorial course from SoloLearn",
                     Year = 2018,
                     Url = "https://www.sololearn.com/Certificate/1068-5118349/pdf/"
                 },
-                new Sertificate
+                new Certificate
                 {
                     Id = 8,
                     Name = "Python 3 Tutorial course from SoloLearn",
                     Year = 2018,
                     Url = "https://www.sololearn.com/Certificate/1073-5118349/pdf/"
                 },
-                new Sertificate
+                new Certificate
                 {
                     Id = 9,
                     Name = "c++ Tutorial course from SoloLearn",
                     Year = 2018,
                     Url = "https://www.sololearn.com/Certificate/1051-5118349/pdf/"
                 },
-                new Sertificate
+                new Certificate
                 {
                     Id = 10,
-                    Name = "Sertificate of Completion English Upper-Intermediate level from Simpler",
+                    Name = "Certificate of Completion English Upper-Intermediate level from Simpler",
                     Year = 2018,
                     Url = "https://simpler.link/c/JmQM"
                 },
-                new Sertificate
+                new Certificate
                 {
                     Id = 11,
                     Name = "Participant of 5th student hackathon from First Line Software",

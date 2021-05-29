@@ -62,12 +62,12 @@ namespace WebPortfolio.Migrations
                     b.Property<int>("Progress")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SertificateId")
+                    b.Property<int?>("CertificateId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SertificateId");
+                    b.HasIndex("CertificateId");
 
                     b.ToTable("Languages");
 
@@ -127,7 +127,7 @@ namespace WebPortfolio.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WebPortfolio.Models.Sertificate", b =>
+            modelBuilder.Entity("WebPortfolio.Models.Certificate", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -146,7 +146,7 @@ namespace WebPortfolio.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sertificates");
+                    b.ToTable("Certificates");
 
                     b.HasData(
                         new
@@ -213,7 +213,7 @@ namespace WebPortfolio.Migrations
                         new
                         {
                             Id = 10,
-                            Name = "Sertificate of Completion English Upper-Intermediate level from Simpler",
+                            Name = "Certificate of Completion English Upper-Intermediate level from Simpler",
                             Url = "https://simpler.link/c/JmQM",
                             Year = 2018
                         },
@@ -314,9 +314,9 @@ namespace WebPortfolio.Migrations
 
             modelBuilder.Entity("WebPortfolio.Models.Language", b =>
                 {
-                    b.HasOne("WebPortfolio.Models.Sertificate", "Sertificate")
+                    b.HasOne("WebPortfolio.Models.Certificate", "Certificate")
                         .WithMany()
-                        .HasForeignKey("SertificateId");
+                        .HasForeignKey("CertificateId");
                 });
 #pragma warning restore 612, 618
         }
