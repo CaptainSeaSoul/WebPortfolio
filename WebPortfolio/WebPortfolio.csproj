@@ -19,8 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.0.0" />
-    <PackageReference Include="Azure.Identity" Version="1.2.2" />
+    <PackageReference Include="Azure.Core" Version="1.16.0" />
+    <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.2.1" />
+    <PackageReference Include="Azure.Identity" Version="1.4.0" />
+    <PackageReference Include="EFCoreSecondLevelCacheInterceptor" Version="3.1.1" />
     <PackageReference Include="MailKit" Version="2.9.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
@@ -30,6 +32,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Azure" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.AzureKeyVault" Version="3.1.15" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +41,10 @@
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\imgs\projects\" />
     <Folder Include="wwwroot\lib\anime\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\keyvaultproxy\src\AzureSamples.Security.KeyVault.Proxy.csproj" />
   </ItemGroup>
 
 </Project>

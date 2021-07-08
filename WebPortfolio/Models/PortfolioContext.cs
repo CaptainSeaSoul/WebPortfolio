@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
+using EFCoreSecondLevelCacheInterceptor;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace WebPortfolio.Models
 {
     public class PortfolioContext : DbContext
     {
-        public DbSet<Project> Projects { set; get; }
+        public DbSet<Project> Projects { get; set; }
         public DbSet<Certificate> Certificates { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Language> Languages { get; set; }
@@ -17,7 +18,6 @@ namespace WebPortfolio.Models
 
         public PortfolioContext(DbContextOptions<PortfolioContext> options) : base(options)
         {
-            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
